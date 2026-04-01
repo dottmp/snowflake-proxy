@@ -3,10 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snowflake Proxy</title>
+    <title>Snowflake Proxy | dottmp</title>
+    <description>
+      Enable snowflake proxy and leave it on to donate bandwith and help tor
+      users bypass censorship and access internet freely. click "Learn more" to
+      find out how snowflake proxy works and how to set it up on your own
+      website.
+    </description>
     <link rel="stylesheet" href="dist/output.css" />
-    <script type="module">
-      import { asciiPrint } from "./src/ascii-printer.js";
+
+    <script>
+      <!------------------------------------------------------------------------>
+      <!-- scripts                                                             ->
+      <!------------------------------------------------------------------------>
+
+      /**
+       * Animates ASCII art text into a <pre> element, chunk by chunk.
+       *
+       * @param {HTMLPreElement} el        - Target <pre> element
+       * @param {string}         text      - Full ASCII art string to print
+       * @param {object}         [options]
+       * @param {number}         [options.chunkSize=16]  - Characters printed per tick
+       * @param {number}         [options.delay=0]       - ms between ticks (0 = rAF)
+       * @param {Function}       [options.oncomplete]    - Called when printing finishes
+       */
+      export function asciiPrint(
+        el,
+        text,
+        { chunkSize = 16, delay = 0, oncomplete } = {},
+      ) {
+        const chars = [...text].reverse();
+
+        let banner = "";
+
+        function tick() {
+          const chunk = Array(chunkSize)
+            .fill(null)
+            .map(() => chars.pop() ?? "")
+            .join("");
+
+          if (!chunk) {
+            el.textContent = banner;
+            oncomplete?.();
+            return;
+          }
+
+          banner += chunk;
+          el.textContent = banner + "█";
+
+          if (delay > 0) {
+            setTimeout(tick, delay);
+          } else {
+            requestAnimationFrame(tick);
+          }
+        }
+
+        requestAnimationFrame(tick);
+      }
+
+      <!------------------------------------------------------------------------>
+      <!--  banners                                                            ->
+      <!------------------------------------------------------------------------>
 
       const banner = `
       ::::::::  ::::    :::  ::::::::  :::       ::: :::::::::: :::            :::     :::    ::: ::::::::::          :::::::::  :::::::::   ::::::::  :::    ::: :::   ::: 
@@ -25,8 +82,11 @@
       const footer = `
 Enable snowflake proxy and leave it on to donate bandwith and help tor users bypass censorship and access internet freely.
 
-click "Learn more" to find out how snowflake proxy works and how to set it up on your own website.
-`;
+click "Learn more" to find out how snowflake proxy works and how to set it up on your own website.`;
+
+      <!------------------------------------------------------------------------>
+      <!-- print                                                               ->
+      <!------------------------------------------------------------------------>
 
       asciiPrint(document.getElementById("ascii-banner"), banner, {
         chunkSize: 24,
@@ -42,6 +102,11 @@ click "Learn more" to find out how snowflake proxy works and how to set it up on
       });
     </script>
   </head>
+
+  <!------------------------------------------------------------------------>
+  <!-- content                                                            ->
+  <!------------------------------------------------------------------------>
+
   <body
     class="min-h-screen bg-background flex items-center flex-col justify-center p-4"
   >
@@ -50,39 +115,38 @@ click "Learn more" to find out how snowflake proxy works and how to set it up on
         id="ascii-banner"
         aria-hidden="true"
         style="background: transparent"
-        class="font-mono text-xs leading-3 -tracking-widest text-foreground mb-6 h-[156px]"
+        class="font-mono text-xs leading-3 -tracking-widest text-foreground mb-6 h-39"
       ></pre>
 
       <p class="text-center sr-only">
         Snowflake Proxy Volunteering bandwidth to help Tor users bypass
         censorship.
       </p>
-      <div class="h-[260px]">
-        <div id="proxy" class="hidden !h-[260px]">
-          <iframe
-            title="Snowflake proxy"
-            aria-readonly="true"
-            src="https://snowflake.torproject.org/embed.html"
-            width="320"
-            height="260"
-            class="border-0 outline-none filter-[invert(1)_hue-rotate(180deg)_brightness(0.8)_contrast(0.92)]"
-          ></iframe>
-        </div>
+
+      <div id="proxy" class="hidden h-65">
+        <iframe
+          title="Snowflake proxy"
+          aria-readonly="true"
+          src="https://snowflake.torproject.org/embed.html"
+          width="320"
+          height="260"
+          class="border-0 outline-none filter-[invert(1)_hue-rotate(180deg)_brightness(0.8)_contrast(0.92)]"
+        ></iframe>
       </div>
 
       <pre
         id="ascii-footer"
         aria-hidden="true"
         style="background: transparent"
-        class="font-mono text-xs leading-3 -tracking-widest text-foreground mb-6 text-center h-[48px]"
+        class="font-mono text-xs leading-3 -tracking-widest text-foreground mb-6 text-center h-12"
       ></pre>
 
-      <span class="sr-only">
+      <p class="sr-only">
         Enable snowflake proxy and leave it on to donate bandwith and help tor
         users bypass censorship and access internet freely. click "Learn more"
         to find out how snowflake proxy works and how to set it up on your own
         website.
-      </span>
+      </p>
     </main>
   </body>
 </html>

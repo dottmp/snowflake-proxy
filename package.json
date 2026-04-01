@@ -1,16 +1,16 @@
 {
   "name": "snowlfake-proxy",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple html file for running tor snowflake proxy",
   "main": "index.js",
   "scripts": {
-    "build": "tailwindcss -i ./src/app.css -o ./dist/output.css",
-    "dev": "serve . &&  tailwindcss -i ./src/app.css -o ./dist/output.css --watch",
-    "start": "tailwindcss -i ./src/app.css -o ./dist/output.css"
+    "build": "tailwindcss -i ./app.css -o ./dist/output.css",
+    "dev": "serve . & tailwindcss -i ./app.css -o ./dist/output.css --watch",
+    "start": "tailwindcss -i ./app.css -o ./dist/output.css"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "dottmp",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "@fontsource-variable/ibm-plex-sans": "^5.2.8",
