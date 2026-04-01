@@ -14,6 +14,39 @@
     <script type="module">
       import { asciiPrint } from "./src/ascii-print.js";
 
+      const snowflake = `
+           .                      +++          
+           *=   .+               :*-           
+            ++: +=            ..+*:            
+             =+++        ..  .*++   ....       
+              :++        ==  =+*-              
+               =++  -    =++++++  -*:     .    
+                +=***   :+*+*+*  :+=     +=    
+              .-:*++.     - ..+.++=      +.    
+               = *+.=     :....-=       -*.  .-
+      .        +....:.   -.:..=.       =**++=  
+  .. .++        +-..:. . ::..:      .=++:.     
+   ==+*=        .::..:...:: ....-+++**.        
+      .****++....::..:::::..::.:.=***=+*+=:-=-=
+    .:=+*+-.:.............::.=..         ..  -+
+**+=+=++*=+++=-.:-::......::.: .    .-        -
+:           -++==:.:.:.....:...=-++-           
+              .=....:..:......:.-              
+          *==+:-:..::..::.:.....=.             
+            +*=.:.:::...::.....:.**+.          
+            +:...-=::*::-=:.:....*=            
+           =+==:  ++==*. :-.:= ++*             
+     :. - ++=    :*-.=-:==**=   +*=            
+     .: :++     --.      -*+.  :.+*            
+     :: -+    -  .         +.     ++           
+      :=--*+=                   :+*+=          
+   -+-+.:                      -   .*:         
+    :+  :                            +..:      
+   .*        ..                      .+.       
+             .=.                      +        
+                                      -        
+`;
+
       const banner = `
       ::::::::  ::::    :::  ::::::::  :::       ::: :::::::::: :::            :::     :::    ::: ::::::::::          :::::::::  :::::::::   ::::::::  :::    ::: :::   ::: 
     :+:    :+: :+:+:   :+: :+:    :+: :+:       :+: :+:        :+:          :+: :+:   :+:   :+:  :+:                 :+:    :+: :+:    :+: :+:    :+: :+:    :+: :+:   :+:  
@@ -33,26 +66,31 @@ Enable snowflake proxy and leave it on to donate bandwith and help tor users byp
 
 click "Learn more" to find out how snowflake proxy works and how to set it up on your own website.`;
 
-      asciiPrint(document.getElementById("ascii-banner"), banner, {
+      asciiPrint(document.getElementById("ascii-snowflake"), snowflake, {
         chunkSize: 24,
         oncomplete: () => {
-          const showProxy = document.getElementById("proxy");
-          const iframe = document.getElementById("proxy-iframe");
-          const isFirefox = navigator.userAgent
-            .toLowerCase()
-            .includes("firefox");
+          asciiPrint(document.getElementById("ascii-banner"), banner, {
+            chunkSize: 24,
+            oncomplete: () => {
+              const showProxy = document.getElementById("proxy");
+              const iframe = document.getElementById("proxy-iframe");
+              const isFirefox = navigator.userAgent
+                .toLowerCase()
+                .includes("firefox");
 
-          iframe.className = [
-            "border-0 outline-none",
-            isFirefox
-              ? "filter-[invert(1)_hue-rotate(180deg)_brightness(0.8)_contrast(0.92)]"
-              : "filter-[brightness(0.6)_contrast(1.2)_saturate(1)_hue-rotate(180deg)]",
-          ].join(" ");
+              iframe.className = [
+                "border-0 outline-none",
+                isFirefox
+                  ? "filter-[invert(1)_hue-rotate(180deg)_brightness(0.8)_contrast(0.92)]"
+                  : "filter-[brightness(0.6)_contrast(1.2)_saturate(1)_hue-rotate(180deg)]",
+              ].join(" ");
 
-          showProxy.classList.remove("hidden");
+              showProxy.classList.remove("hidden");
 
-          asciiPrint(document.getElementById("ascii-footer"), footer, {
-            chunkSize: 4,
+              asciiPrint(document.getElementById("ascii-footer"), footer, {
+                chunkSize: 4,
+              });
+            },
           });
         },
       });
@@ -68,10 +106,17 @@ click "Learn more" to find out how snowflake proxy works and how to set it up on
   >
     <main class="flex items-center flex-col justify-center">
       <pre
+        id="ascii-snowflake"
+        aria-hidden="true"
+        style="background: transparent"
+        class="font-mono text-[6px] leading-[7px] text-foreground mb-4"
+      ></pre>
+
+      <pre
         id="ascii-banner"
         aria-hidden="true"
         style="background: transparent"
-        class="font-mono text-xs leading-3 -tracking-widest text-foreground mb-6"
+        class="font-mono text-[10px] leading-3 -tracking-widest text-foreground mb-6"
       ></pre>
 
       <p class="sr-only">
