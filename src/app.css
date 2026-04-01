@@ -1,0 +1,113 @@
+@import "tailwindcss";
+@import "@fontsource-variable/ibm-plex-sans";
+@import "@fontsource/ibm-plex-serif";
+@import "@fontsource/ibm-plex-mono";
+
+/*---------------------------------------------------------------------- */
+/*  Vars                                                                 */
+/*---------------------------------------------------------------------- */
+@theme inline {
+  --font-serif: "IBM Plex Serif", serif;
+  --font-sans: "IBM Plex Sans Variable", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --background: var(--color-olive-200);
+  --foreground: var(--color-olive-950);
+  --primary: var(--color-olive-950);
+  --primary-foreground: var(--color-olive-50);
+  --secondary: var(--color-olive-300);
+  --secondary-foreground: var(--color-olive-950);
+  --muted: var(--color-olive-300);
+  --muted-foreground: var(--color-olive-500);
+  --accent: var(--color-emerald-950);
+  --accent-foreground: var(--color-emerald-200);
+  --destructive: var(--color-rose-950);
+  --destructive-foreground: var(--color-rose-200);
+  --border: var(--color-olive-400);
+  --ring: var(--color-olive-950);
+}
+
+.dark {
+  --background: var(--color-neutral-950);
+  --foreground: var(--color-neutral-100);
+  --primary: var(--color-neutral-100);
+  --primary-foreground: var(--color-neutral-950);
+  --secondary: var(--color-neutral-700);
+  --secondary-foreground: var(--color-neutral-100);
+  --muted: var(--color-neutral-800);
+  --muted-foreground: var(--color-neutral-500);
+  --accent: var(--color-emerald-950);
+  --accent-foreground: var(--color-emerald-200);
+  --destructive: var(--color-rose-950);
+  --destructive-foreground: var(--color-rose-200);
+  --border: var(--color-neutral-600);
+  --ring: var(--color-neutral-100);
+}
+
+/*---------------------------------------------------------------------- */
+/*  Classes                                                              */
+/*---------------------------------------------------------------------- */
+
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn {
+  @apply shrink-0 bg-clip-padding text-base whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 sm:text-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
+}
+
+.btn-link {
+  @apply text-muted-foreground underline decoration-muted-foreground underline-offset-2 hover:text-primary hover:decoration-primary focus-visible:text-foreground focus-visible:decoration-primary;
+}
+
+.btn-text {
+  @apply text-muted-foreground hover:text-primary focus-visible:text-primary;
+}
+
+/*---------------------------------------------------------------------- */
+/* Typography                                                            */
+/*---------------------------------------------------------------------- */
+
+p {
+  @apply text-base text-muted-foreground sm:text-sm;
+}
+
+h1 {
+  @apply text-xl font-medium sm:text-2xl;
+}
+
+/*---------------------------------------------------------------------- */
+/* Layer                                                                 */
+/*---------------------------------------------------------------------- */
+@layer base {
+  * {
+    @apply border-border outline-ring/50 selection:bg-blue-800 selection:text-white;
+  }
+  body {
+    @apply font-serif text-foreground;
+  }
+
+  * {
+    scrollbar-width: thin;
+  }
+
+  *::-webkit-scrollbar {
+    @apply w-4;
+  }
+}

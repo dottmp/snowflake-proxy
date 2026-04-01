@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snowflake Proxy</title>
+    <link rel="stylesheet" href="dist/output.css" />
+    <script type="module">
+      import { asciiPrint } from "./src/ascii-printer.js";
+
+      const banner = `
+      ::::::::  ::::    :::  ::::::::  :::       ::: :::::::::: :::            :::     :::    ::: ::::::::::          :::::::::  :::::::::   ::::::::  :::    ::: :::   ::: 
+    :+:    :+: :+:+:   :+: :+:    :+: :+:       :+: :+:        :+:          :+: :+:   :+:   :+:  :+:                 :+:    :+: :+:    :+: :+:    :+: :+:    :+: :+:   :+:  
+   +:+        :+:+:+  +:+ +:+    +:+ +:+       +:+ +:+        +:+         +:+   +:+  +:+  +:+   +:+                 +:+    +:+ +:+    +:+ +:+    +:+  +:+  +:+   +:+ +:+    
+  +#++:++#++ +#+ +:+ +#+ +#+    +:+ +#+  +:+  +#+ :#::+::#   +#+        +#++:++#++: +#++:++    +#++:++#            +#++:++#+  +#++:++#:  +#+    +:+   +#++:+     +#++:      
+        +#+ +#+  +#+#+# +#+    +#+ +#+ +#+#+ +#+ +#+        +#+        +#+     +#+ +#+  +#+   +#+                 +#+        +#+    +#+ +#+    +#+  +#+  +#+     +#+        
+#+#    #+# #+#   #+#+# #+#    #+#  #+#+# #+#+#  #+#        #+#        #+#     #+# #+#   #+#  #+#                 #+#        #+#    #+# #+#    #+# #+#    #+#    #+#         
+########  ###    ####  ########    ###   ###   ###        ########## ###     ### ###    ### ##########          ###        ###    ###  ########  ###    ###    ###          
+                                                                                                                                                                            
+                                                                                                                                                                            
+                                                                                                                                                snowflake proxy 
+
+                                                                                                                                                            by tor`;
+
+      const footer = `
+Enable snowflake proxy and leave it on to donate bandwith and help tor users bypass censorship and access internet freely.
+
+click "Learn more" to find out how snowflake proxy works and how to set it up on your own website.
+`;
+
+      asciiPrint(document.getElementById("ascii-banner"), banner, {
+        chunkSize: 24,
+        oncomplete: () => {
+          const showProxy = document.getElementById("proxy");
+
+          showProxy.classList.remove("hidden");
+
+          asciiPrint(document.getElementById("ascii-footer"), footer, {
+            chunkSize: 4,
+          });
+        },
+      });
+    </script>
+  </head>
+  <body
+    class="min-h-screen bg-background flex items-center flex-col justify-center p-4"
+  >
+    <main class="flex items-center flex-col justify-center">
+      <pre
+        id="ascii-banner"
+        aria-hidden="true"
+        style="background: transparent"
+        class="font-mono text-xs leading-3 -tracking-widest text-foreground mb-6 h-[156px]"
+      ></pre>
+
+      <p class="text-center sr-only">
+        Snowflake Proxy Volunteering bandwidth to help Tor users bypass
+        censorship.
+      </p>
+      <div class="h-[260px]">
+        <div id="proxy" class="hidden !h-[260px]">
+          <iframe
+            title="Snowflake proxy"
+            aria-readonly="true"
+            src="https://snowflake.torproject.org/embed.html"
+            width="320"
+            height="260"
+            class="border-0 outline-none filter-[invert(1)_hue-rotate(180deg)_brightness(0.8)_contrast(0.92)]"
+          ></iframe>
+        </div>
+      </div>
+
+      <pre
+        id="ascii-footer"
+        aria-hidden="true"
+        style="background: transparent"
+        class="font-mono text-xs leading-3 -tracking-widest text-foreground mb-6 text-center h-[48px]"
+      ></pre>
+
+      <span class="sr-only">
+        Enable snowflake proxy and leave it on to donate bandwith and help tor
+        users bypass censorship and access internet freely. click "Learn more"
+        to find out how snowflake proxy works and how to set it up on your own
+        website.
+      </span>
+    </main>
+  </body>
+</html>
