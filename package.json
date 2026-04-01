@@ -11,9 +11,6 @@
   "author": "dottmp",
   "license": "MIT",
   "devDependencies": {
-    "@fontsource-variable/ibm-plex-sans": "^5.2.8",
-    "@fontsource/ibm-plex-mono": "^5.2.7",
-    "@fontsource/ibm-plex-serif": "^5.2.7",
     "@tailwindcss/cli": "^4.2.2",
     "tailwindcss": "^4.2.2",
     "serve": "^14.2.6"
