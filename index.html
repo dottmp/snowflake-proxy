@@ -11,7 +11,41 @@
     <link rel="icon" href="favicon.svg" />
     <link rel="stylesheet" href="dist/output.css" />
 
-    <script type="module" src="print-website.js"></script>
+    <script type="module">
+      import { asciiPrint } from "./src/ascii-print.js";
+
+      const banner = `
+      ::::::::  ::::    :::  ::::::::  :::       ::: :::::::::: :::            :::     :::    ::: ::::::::::          :::::::::  :::::::::   ::::::::  :::    ::: :::   ::: 
+    :+:    :+: :+:+:   :+: :+:    :+: :+:       :+: :+:        :+:          :+: :+:   :+:   :+:  :+:                 :+:    :+: :+:    :+: :+:    :+: :+:    :+: :+:   :+:  
+   +:+        :+:+:+  +:+ +:+    +:+ +:+       +:+ +:+        +:+         +:+   +:+  +:+  +:+   +:+                 +:+    +:+ +:+    +:+ +:+    +:+  +:+  +:+   +:+ +:+    
+  +#++:++#++ +#+ +:+ +#+ +#+    +:+ +#+  +:+  +#+ :#::+::#   +#+        +#++:++#++: +#++:++    +#++:++#            +#++:++#+  +#++:++#:  +#+    +:+   +#++:+     +#++:      
+        +#+ +#+  +#+#+# +#+    +#+ +#+ +#+#+ +#+ +#+        +#+        +#+     +#+ +#+  +#+   +#+                 +#+        +#+    +#+ +#+    +#+  +#+  +#+     +#+        
+#+#    #+# #+#   #+#+# #+#    #+#  #+#+# #+#+#  #+#        #+#        #+#     #+# #+#   #+#  #+#                 #+#        #+#    #+# #+#    #+# #+#    #+#    #+#         
+########  ###    ####  ########    ###   ###   ###        ########## ###     ### ###    ### ##########          ###        ###    ###  ########  ###    ###    ###          
+                                                                                                                                                                             
+                                                                                                                                                                             
+                                                                                                                                                 snowflake proxy 
+
+                                                                                                                                                             by tor`;
+
+      const footer = `
+Enable snowflake proxy and leave it on to donate bandwith and help tor users bypass censorship and access internet freely.
+
+click "Learn more" to find out how snowflake proxy works and how to set it up on your own website.`;
+
+      asciiPrint(document.getElementById("ascii-banner"), banner, {
+        chunkSize: 24,
+        oncomplete: () => {
+          const showProxy = document.getElementById("proxy");
+
+          showProxy.classList.remove("hidden");
+
+          asciiPrint(document.getElementById("ascii-footer"), footer, {
+            chunkSize: 4,
+          });
+        },
+      });
+    </script>
   </head>
 
   <!------------------------------------------------------------------------>
