@@ -37,6 +37,17 @@ click "Learn more" to find out how snowflake proxy works and how to set it up on
         chunkSize: 24,
         oncomplete: () => {
           const showProxy = document.getElementById("proxy");
+          const iframe = document.getElementById("proxy-iframe");
+          const isFirefox = navigator.userAgent
+            .toLowerCase()
+            .includes("firefox");
+
+          iframe.className = [
+            "border-0 outline-none",
+            isFirefox
+              ? "filter-[invert(1)_hue-rotate(180deg)_brightness(0.8)_contrast(0.92)]"
+              : "filter-[brightness(0.6)_contrast(1.2)_saturate(1)_hue-rotate(180deg)]",
+          ].join(" ");
 
           showProxy.classList.remove("hidden");
 
@@ -60,7 +71,7 @@ click "Learn more" to find out how snowflake proxy works and how to set it up on
         id="ascii-banner"
         aria-hidden="true"
         style="background: transparent"
-        class="font-mono text-xs leading-3 -tracking-widest text-foreground mb-6 h-39"
+        class="font-mono text-xs leading-3 -tracking-widest text-foreground mb-6"
       ></pre>
 
       <p class="sr-only">
@@ -68,14 +79,15 @@ click "Learn more" to find out how snowflake proxy works and how to set it up on
         censorship.
       </p>
 
-      <div id="proxy" class="hidden h-65">
+      <div id="proxy" class="hidden">
         <iframe
+          id="proxy-iframe"
           title="Snowflake proxy"
           aria-readonly="true"
           src="https://snowflake.torproject.org/embed.html"
           width="320"
           height="260"
-          class="border-0 outline-none filter-[invert(1)_hue-rotate(180deg)_brightness(0.8)_contrast(0.92)]"
+          class="border-0 outline-none"
         ></iframe>
       </div>
 
@@ -83,7 +95,7 @@ click "Learn more" to find out how snowflake proxy works and how to set it up on
         id="ascii-footer"
         aria-hidden="true"
         style="background: transparent"
-        class="font-mono text-xs leading-3 -tracking-widest text-foreground mb-6 text-center h-12"
+        class="font-mono text-xs leading-3 tracking-tight text-foreground mt-6 text-center"
       ></pre>
 
       <p class="sr-only">

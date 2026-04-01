@@ -8,7 +8,11 @@
  * @param {number}         [options.delay=0]       - ms between ticks (0 = rAF)
  * @param {Function}       [options.oncomplete]    - Called when printing finishes
  */
-export function asciiPrint(el, text, { chunkSize = 16, delay = 0, oncomplete } = {}) {
+export function asciiPrint(
+  el,
+  text,
+  { chunkSize = 16, delay = 0, oncomplete } = {},
+) {
   const chars = [...text].reverse();
 
   let banner = "";
