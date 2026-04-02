@@ -1,142 +1,325 @@
-@import "tailwindcss";
-
-/* ibm-plex-sans-latin-wght-normal */
 @font-face {
-  font-family: 'IBM Plex Sans Variable';
+  font-family: "IBM Plex Sans Variable";
   font-style: normal;
   font-display: swap;
   font-weight: 100 700;
-  src: url(https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-sans:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-sans:vf@latest/latin-wght-normal.woff2)
+    format("woff2-variations");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
-/* ibm-plex-serif-latin-400-normal */
 @font-face {
-  font-family: 'IBM Plex Serif';
+  font-family: "IBM Plex Serif";
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url(https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-serif@latest/latin-400-normal.woff2) format('woff2'),
-       url(https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-serif@latest/latin-400-normal.woff) format('woff');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  src:
+    url(https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-serif@latest/latin-400-normal.woff2)
+      format("woff2"),
+    url(https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-serif@latest/latin-400-normal.woff)
+      format("woff");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
-/* ibm-plex-mono-latin-400-normal */
 @font-face {
-  font-family: 'IBM Plex Mono';
+  font-family: "IBM Plex Mono";
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url(https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-mono@latest/latin-400-normal.woff2) format('woff2'),
-       url(https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-mono@latest/latin-400-normal.woff) format('woff');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  src:
+    url(https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-mono@latest/latin-400-normal.woff2)
+      format("woff2"),
+    url(https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-mono@latest/latin-400-normal.woff)
+      format("woff");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
-/*---------------------------------------------------------------------- */
-/*  Vars                                                                 */
-/*---------------------------------------------------------------------- */
-@theme inline {
+/* ---------------------------------------------------------------------- */
+/*  Design tokens                                                          */
+/* ---------------------------------------------------------------------- */
+
+:root {
+  --background: oklch(0.13 0 0);
+  --foreground: oklch(0.95 0 0);
+  --primary: oklch(0.95 0 0);
+  --primary-foreground: oklch(0.13 0 0);
+  --muted: oklch(0.27 0 0);
+  --muted-foreground: oklch(0.52 0 0);
+  --border: oklch(0.44 0 0);
+  --ring: oklch(0.95 0 0);
+
+  /* Typography */
   --font-serif: "IBM Plex Serif", serif;
   --font-sans: "IBM Plex Sans Variable", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-ring: var(--ring);
 }
 
-:root {
-  --background: var(--color-olive-200);
-  --foreground: var(--color-olive-950);
-  --primary: var(--color-olive-950);
-  --primary-foreground: var(--color-olive-50);
-  --secondary: var(--color-olive-300);
-  --secondary-foreground: var(--color-olive-950);
-  --muted: var(--color-olive-300);
-  --muted-foreground: var(--color-olive-500);
-  --accent: var(--color-emerald-950);
-  --accent-foreground: var(--color-emerald-200);
-  --destructive: var(--color-rose-950);
-  --destructive-foreground: var(--color-rose-200);
-  --border: var(--color-olive-400);
-  --ring: var(--color-olive-950);
+/* ---------------------------------------------------------------------- */
+/*  Reset / base                                                           */
+/* ---------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border: 0 solid var(--border);
+  outline-color: oklch(from var(--ring) l c h / 0.5);
 }
 
-.dark {
-  --background: var(--color-neutral-950);
-  --foreground: var(--color-neutral-100);
-  --primary: var(--color-neutral-100);
-  --primary-foreground: var(--color-neutral-950);
-  --secondary: var(--color-neutral-700);
-  --secondary-foreground: var(--color-neutral-100);
-  --muted: var(--color-neutral-800);
-  --muted-foreground: var(--color-neutral-500);
-  --accent: var(--color-emerald-950);
-  --accent-foreground: var(--color-emerald-200);
-  --destructive: var(--color-rose-950);
-  --destructive-foreground: var(--color-rose-200);
-  --border: var(--color-neutral-600);
-  --ring: var(--color-neutral-100);
+*::selection {
+  background-color: #1e40af;
+  color: var(--foreground);
 }
 
-/*---------------------------------------------------------------------- */
-/*  Classes                                                              */
-/*---------------------------------------------------------------------- */
-
-.container {
-  @apply mx-auto px-4 sm:px-6 lg:px-8;
+* {
+  scrollbar-width: thin;
 }
 
-.btn {
-  @apply shrink-0 bg-clip-padding text-base whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 sm:text-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
+*::-webkit-scrollbar {
+  width: 1rem;
 }
 
-.btn-link {
-  @apply text-muted-foreground underline decoration-muted-foreground underline-offset-2 hover:text-primary hover:decoration-primary focus-visible:text-foreground focus-visible:decoration-primary;
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.btn-text {
-  @apply text-muted-foreground hover:text-primary focus-visible:text-primary;
+body {
+  font-family: var(--font-serif);
+  color: var(--foreground);
+  background-color: var(--background);
 }
-
-/*---------------------------------------------------------------------- */
-/* Typography                                                            */
-/*---------------------------------------------------------------------- */
 
 p {
-  @apply text-base text-muted-foreground sm:text-sm;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--muted-foreground);
 }
 
 h1 {
-  @apply text-xl font-medium sm:text-2xl;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
 }
 
-/*---------------------------------------------------------------------- */
-/* Layer                                                                 */
-/*---------------------------------------------------------------------- */
-@layer base {
-  * {
-    @apply border-border outline-ring/50 selection:bg-blue-800 selection:text-white;
+@media (min-width: 640px) {
+  p {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
-  body {
-    @apply font-serif text-foreground;
+  h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
+}
 
-  * {
-    scrollbar-width: thin;
-  }
+/* ---------------------------------------------------------------------- */
+/*  Layout                                                                 */
+/* ---------------------------------------------------------------------- */
 
-  *::-webkit-scrollbar {
-    @apply w-4;
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
+}
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/*  Components                                                             */
+/* ---------------------------------------------------------------------- */
+
+.btn {
+  flex-shrink: 0;
+  background-clip: padding-box;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  white-space: nowrap;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  user-select: none;
+}
+
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.btn svg {
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.btn svg:not([class*="size-"]) {
+  width: 1rem;
+  height: 1rem;
+}
+
+@media (min-width: 640px) {
+  .btn {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+.btn-link {
+  color: var(--muted-foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--muted-foreground);
+  text-underline-offset: 2px;
+}
+
+.btn-link:hover {
+  color: var(--primary);
+  text-decoration-color: var(--primary);
+}
+
+.btn-link:focus-visible {
+  color: var(--foreground);
+  text-decoration-color: var(--primary);
+}
+
+.btn-text {
+  color: var(--muted-foreground);
+}
+
+.btn-text:hover,
+.btn-text:focus-visible {
+  color: var(--primary);
+}
+
+/* ---------------------------------------------------------------------- */
+/*  Page layout                                                            */
+/* ---------------------------------------------------------------------- */
+
+.page-body {
+  min-height: 100svh;
+  background-color: var(--background);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.page-main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ---------------------------------------------------------------------- */
+/*  ASCII art elements                                                     */
+/* ---------------------------------------------------------------------- */
+
+.ascii {
+  font-family: var(--font-mono);
+  color: var(--foreground);
+  background: transparent;
+}
+
+#ascii-snowflake {
+  font-size: 6px;
+  line-height: 7px;
+  margin-bottom: 1rem;
+}
+
+#ascii-banner {
+  font-size: 10px;
+  line-height: 0.75rem;
+  letter-spacing: -0.05em;
+  margin-bottom: 1.5rem;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  #ascii-banner {
+    display: block;
+  }
+}
+
+#ascii-footer {
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  letter-spacing: -0.025em;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------------------- */
+/*  Proxy iframe wrapper                                                   */
+/* ---------------------------------------------------------------------- */
+
+.proxy-wrapper {
+  display: none;
+}
+
+.proxy-wrapper.visible {
+  display: block;
+}
+
+.proxy-iframe {
+  border: 0;
+  outline: none;
+  display: block;
+}
+
+/* ---------------------------------------------------------------------- */
+/*  404 page                                                               */
+/* ---------------------------------------------------------------------- */
+
+.not-found-main {
+  max-width: 36rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-style: italic;
+}
+
+.not-found-banner {
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  letter-spacing: -0.05em;
+  height: 8rem;
+}
+
+/* ---------------------------------------------------------------------- */
+/*  Accessibility                                                          */
+/* ---------------------------------------------------------------------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

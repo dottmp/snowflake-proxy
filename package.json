@@ -3,16 +3,12 @@
   "version": "1.0.0",
   "description": "Simple html file for running tor snowflake proxy",
   "scripts": {
-    "build": "tailwindcss -i ./src/app.css -o ./dist/output.css",
-    "dev": "serve . & tailwindcss -i ./src/app.css -o ./dist/output.css --watch",
-    "start": "tailwindcss -i ./src/app.css -o ./dist/output.css"
+    "dev": "serve ."
   },
   "keywords": [],
   "author": "dottmp",
   "license": "MIT",
   "devDependencies": {
-    "@tailwindcss/cli": "^4.2.2",
-    "tailwindcss": "^4.2.2",
     "serve": "^14.2.6"
   }
 }

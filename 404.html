@@ -9,7 +9,7 @@
       content="The page you were looking for could not be found."
     />
     <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="dist/output.css" />
+    <link rel="stylesheet" href="src/app.css" />
 
     <script type="module">
       import { asciiPrint } from "./src/ascii-print.js";
@@ -31,17 +31,12 @@
     </script>
   </head>
 
-  <body
-    class="min-h-screen bg-background flex items-center flex-col justify-center p-4"
-  >
-    <main
-      class="container m-auto flex max-w-xl items-center justify-center overflow-hidden italic"
-    >
+  <body class="page-body">
+    <main class="not-found-main">
       <pre
         id="ascii-banner"
         aria-hidden="true"
-        style="background: transparent"
-        class="font-mono text-xs leading-3 -tracking-widest text-foreground h-32"
+        class="ascii not-found-banner"
       ></pre>
 
       <h1 class="sr-only">404 — page not found</h1>
