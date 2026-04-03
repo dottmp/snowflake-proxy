@@ -48,31 +48,19 @@
 `;
 
       const banner = `
-      ::::::::  ::::    :::  ::::::::  :::       ::: :::::::::: :::            :::     :::    ::: ::::::::::          :::::::::  :::::::::   ::::::::  :::    ::: :::   ::: 
-    :+:    :+: :+:+:   :+: :+:    :+: :+:       :+: :+:        :+:          :+: :+:   :+:   :+:  :+:                 :+:    :+: :+:    :+: :+:    :+: :+:    :+: :+:   :+:  
-   +:+        :+:+:+  +:+ +:+    +:+ +:+       +:+ +:+        +:+         +:+   +:+  +:+  +:+   +:+                 +:+    +:+ +:+    +:+ +:+    +:+  +:+  +:+   +:+ +:+    
-  +#++:++#++ +#+ +:+ +#+ +#+    +:+ +#+  +:+  +#+ :#::+::#   +#+        +#++:++#++: +#++:++    +#++:++#            +#++:++#+  +#++:++#:  +#+    +:+   +#++:+     +#++:      
-        +#+ +#+  +#+#+# +#+    +#+ +#+ +#+#+ +#+ +#+        +#+        +#+     +#+ +#+  +#+   +#+                 +#+        +#+    +#+ +#+    +#+  +#+  +#+     +#+        
-#+#    #+# #+#   #+#+# #+#    #+#  #+#+# #+#+#  #+#        #+#        #+#     #+# #+#   #+#  #+#                 #+#        #+#    #+# #+#    #+# #+#    #+#    #+#         
-########  ###    ####  ########    ###   ###   ###        ########## ###     ### ###    ### ##########          ###        ###    ###  ########  ###    ###    ###          
-                                                                                                                                                                             
-                                                                                                                                                                             
-                                                                                                                                                                 snowflake proxy 
+battle  
+censorship with
 
-                                                                                                                                                             by tor`;
+                 snowflake proxy `;
 
-      const footer = `
-Enable snowflake proxy and leave it on to donate bandwith and help tor users bypass censorship and access internet freely.
-
-click "Learn more" to find out how snowflake proxy works and how to set it up on your own website.`;
+      const footer = `enable snowflake and leave it on to donate bandwith and help tor users bypass censorship and access internet freely. click "learn more" to find out how snowflake proxy works.`;
 
       asciiPrint(document.getElementById("ascii-snowflake"), snowflake, {
         chunkSize: 24,
         oncomplete: () => {
           asciiPrint(document.getElementById("ascii-banner"), banner, {
-            chunkSize: 24,
+            chunkSize: 4,
             oncomplete: () => {
-              const showProxy = document.getElementById("proxy");
               const iframe = document.getElementById("proxy-iframe");
               const isFirefox = navigator.userAgent
                 .toLowerCase()
@@ -82,7 +70,7 @@ click "Learn more" to find out how snowflake proxy works and how to set it up on
                 ? "invert(1) hue-rotate(180deg) brightness(0.8) contrast(0.92)"
                 : "brightness(0.6) contrast(1.2) saturate(1) hue-rotate(180deg)";
 
-              showProxy.classList.add("visible");
+              iframe.classList.add("visible");
 
               asciiPrint(document.getElementById("ascii-footer"), footer, {
                 chunkSize: 4,
@@ -109,24 +97,21 @@ click "Learn more" to find out how snowflake proxy works and how to set it up on
         censorship.
       </h1>
 
-      <div id="proxy">
-        <iframe
-          id="proxy-iframe"
-          title="Snowflake proxy"
-          aria-readonly="true"
-          src="https://snowflake.torproject.org/embed.html"
-          width="320"
-          height="260"
-        ></iframe>
-      </div>
+      <iframe
+        id="proxy-iframe"
+        title="Snowflake proxy"
+        aria-readonly="true"
+        src="https://snowflake.torproject.org/embed.html"
+        width="320"
+        height="260"
+      ></iframe>
 
       <pre id="ascii-footer" aria-hidden="true" class="ascii"></pre>
 
       <p class="sr-only">
-        Enable snowflake proxy and leave it on to donate bandwith and help tor
-        users bypass censorship and access internet freely. click "Learn more"
-        to find out how snowflake proxy works and how to set it up on your own
-        website.
+        Enable snowflake and leave it on to donate bandwith and help tor users
+        bypass censorship and access internet freely. Click "Learn more" to find
+        out how snowflake proxy works and how to set it up on your own website.
       </p>
     </main>
   </body>

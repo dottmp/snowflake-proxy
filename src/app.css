@@ -222,10 +222,16 @@ h1 {
 /* ---------------------------------------------------------------------- */
 
 #index-page {
+  height: 709px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  #index-page {
+    height: 664px;
+  }
 }
 
 #not-found-page {
@@ -250,31 +256,30 @@ h1 {
 }
 
 #ascii-snowflake {
-  font-size: 6px;
-  line-height: 7px;
-  margin-bottom: 1rem;
+  font-size: 7px;
+  line-height: 6px;
 }
 
 #ascii-banner {
-  font-size: 10px;
+  font-size: 0.75rem;
   letter-spacing: -0.05em;
-  margin-bottom: 1.5rem;
-  display: none;
 }
 
 #ascii-not-found-banner {
+  height: 120px;
   font-size: 0.75rem;
   letter-spacing: -0.05em;
   margin-bottom: 1.5rem;
   display: none;
-  height: 8rem;
 }
 
 #ascii-footer {
   font-size: 0.75rem;
   letter-spacing: -0.025em;
-  margin-top: 1.5rem;
   text-align: center;
+  line-height: 1.75rem;
+  max-width: 700px;
+  white-space: pre-wrap;
 }
 
 @media (min-width: 640px) {
@@ -285,23 +290,25 @@ h1 {
   #ascii-not-found-banner {
     display: block;
   }
+
+  #ascii-snowflake {
+    font-size: 4px;
+    line-height: 3px;
+  }
 }
 
 /* ---------------------------------------------------------------------- */
 /*  Proxy iframe                                                    */
 /* ---------------------------------------------------------------------- */
 
-#proxy {
-  display: none;
-}
-
-#proxy > iframe {
+#proxy-iframe {
   border: 0;
   outline: none;
-  display: block;
+  display: none;
+  margin-top: 3rem;
 }
 
-#proxy.visible {
+#proxy-iframe.visible {
   display: block;
 }
 
