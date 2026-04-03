@@ -267,7 +267,7 @@ h1 {
 
 #ascii-snowflake {
   position: absolute;
-  right: -1rem;
+  right: -1.5rem;
   top: -2rem;
   font-size: 2px;
   line-height: 1px;
@@ -310,8 +310,8 @@ h1 {
   }
 
   #ascii-snowflake {
-    top: -4rem;
-    right: -4rem;
+    top: -3.5rem;
+    right: -2rem;
     font-size: 4px;
     line-height: 3px;
   }
