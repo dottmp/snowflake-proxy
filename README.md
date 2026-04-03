@@ -1,4 +1,4 @@
 # Snowflake Proxy
 
-A simple static web page for the [Snowflake](https://snowflake.torproject.org/)
-proxy — a browser-based pluggable transport that helps Tor users bypass censorship.
+A simple static web page for [Snowflake](https://snowflake.torproject.org/)
+proxy — Enable snowflake and leave it on to donate bandwidth and help tor users bypass censorship and access the internet freely where tor is blocked.
