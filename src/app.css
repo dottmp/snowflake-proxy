@@ -215,9 +215,16 @@ h1 {
 /*  Page layout                                                            */
 /* ---------------------------------------------------------------------- */
 
+#index-page {
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+}
+
 @media (min-width: 860px) {
   #index-page {
-    height: 664px;
     width: 1023px;
   }
 }
@@ -236,9 +243,12 @@ h1 {
 /* ---------------------------------------------------------------------- */
 
 #banner {
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   width: fit-content;
-  margin: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 860px) {
@@ -281,9 +291,8 @@ h1 {
   letter-spacing: -0.025em;
   text-align: center;
   line-height: 1.75rem;
-  max-width: 700px;
+  max-width: 960px;
   white-space: pre-wrap;
-  margin: auto;
 }
 
 @media (min-width: 860px) {
@@ -314,15 +323,13 @@ h1 {
 
 #iframe-wrapper {
   width: fit-content;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (min-width: 860px) {
   #iframe-wrapper {
     width: fit-content;
-    margin: auto;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
   }
 }
 
@@ -357,11 +364,9 @@ h1 {
 /* ---------------------------------------------------------------------- */
 
 footer {
-  position: absolute;
   width: 100%;
   padding: 1rem;
   text-align: center;
-  bottom: 0;
 }
 
 footer p {
