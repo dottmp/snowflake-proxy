@@ -57,7 +57,6 @@
   --border: oklch(0.44 0 0);
   --ring: oklch(0.95 0 0);
 
-  /* Typography */
   --font-serif: "IBM Plex Serif", serif;
   --font-sans: "IBM Plex Sans Variable", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
@@ -98,6 +97,14 @@ body {
   font-family: var(--font-serif);
   color: var(--foreground);
   background-color: var(--background);
+  min-height: 100svh;
+  background-color: var(--background);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
 }
 
 p {
@@ -214,21 +221,21 @@ h1 {
 /*  Page layout                                                            */
 /* ---------------------------------------------------------------------- */
 
-.page-body {
-  min-height: 100svh;
-  background-color: var(--background);
+#index-page {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
 }
 
-.page-main {
+#not-found-page {
+  max-width: 36rem;
+  margin: auto;
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
+  overflow: hidden;
+  font-style: italic;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -239,6 +246,7 @@ h1 {
   font-family: var(--font-mono);
   color: var(--foreground);
   background: transparent;
+  line-height: 0.75rem;
 }
 
 #ascii-snowflake {
@@ -249,63 +257,52 @@ h1 {
 
 #ascii-banner {
   font-size: 10px;
-  line-height: 0.75rem;
   letter-spacing: -0.05em;
   margin-bottom: 1.5rem;
   display: none;
+}
+
+#ascii-not-found-banner {
+  font-size: 0.75rem;
+  letter-spacing: -0.05em;
+  margin-bottom: 1.5rem;
+  display: none;
+  height: 8rem;
+}
+
+#ascii-footer {
+  font-size: 0.75rem;
+  letter-spacing: -0.025em;
+  margin-top: 1.5rem;
+  text-align: center;
 }
 
 @media (min-width: 640px) {
   #ascii-banner {
     display: block;
   }
-}
 
-#ascii-footer {
-  font-size: 0.75rem;
-  line-height: 0.75rem;
-  letter-spacing: -0.025em;
-  margin-top: 1.5rem;
-  text-align: center;
+  #ascii-not-found-banner {
+    display: block;
+  }
 }
 
 /* ---------------------------------------------------------------------- */
-/*  Proxy iframe wrapper                                                   */
+/*  Proxy iframe                                                    */
 /* ---------------------------------------------------------------------- */
 
-.proxy-wrapper {
+#proxy {
   display: none;
 }
 
-.proxy-wrapper.visible {
-  display: block;
-}
-
-.proxy-iframe {
+#proxy > iframe {
   border: 0;
   outline: none;
   display: block;
 }
 
-/* ---------------------------------------------------------------------- */
-/*  404 page                                                               */
-/* ---------------------------------------------------------------------- */
-
-.not-found-main {
-  max-width: 36rem;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  font-style: italic;
-}
-
-.not-found-banner {
-  font-size: 0.75rem;
-  line-height: 0.75rem;
-  letter-spacing: -0.05em;
-  height: 8rem;
+#proxy.visible {
+  display: block;
 }
 
 /* ---------------------------------------------------------------------- */
