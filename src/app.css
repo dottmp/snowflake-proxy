@@ -229,7 +229,6 @@ h1 {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  font-style: italic;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -271,7 +270,7 @@ h1 {
 }
 
 #ascii-not-found-banner {
-  height: 120px;
+  height: 180px;
   font-size: 0.75rem;
   letter-spacing: -0.05em;
   margin-bottom: 1.5rem;
@@ -316,6 +315,15 @@ h1 {
 #iframe-wrapper {
   width: fit-content;
   margin: auto;
+}
+
+@media (min-width: 860px) {
+  #iframe-wrapper {
+    width: fit-content;
+    margin: auto;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
 }
 
 #proxy-iframe {
