@@ -69,7 +69,7 @@
 
                                                                                                                                         snowflake proxy`;
 
-      const footer = `enable snowflake and leave it on to donate bandwith and help tor users bypass censorship and access internet freely. click "learn more" to find out how snowflake proxy works.`;
+      const description = `snowflake is a tool made by the tor project. enable snowflake and leave it on to donate bandwidth and help tor users bypass censorship and access the internet freely where tor is blocked. click "learn more" to find out how snowflake proxy works.`;
 
       asciiPrint(document.getElementById("ascii-banner"), banner, {
         chunkSize: 24,
@@ -85,18 +85,22 @@
 
           iframe.classList.add("visible");
 
-          asciiPrint(document.getElementById("ascii-footer"), footer, {
-            chunkSize: 4,
-            oncomplete: () => {
-              asciiPrint(
-                document.getElementById("ascii-snowflake"),
-                snowflake,
-                {
-                  chunkSize: 24,
-                },
-              );
+          asciiPrint(
+            document.getElementById("ascii-description"),
+            description,
+            {
+              chunkSize: 4,
+              oncomplete: () => {
+                asciiPrint(
+                  document.getElementById("ascii-snowflake"),
+                  snowflake,
+                  {
+                    chunkSize: 24,
+                  },
+                );
+              },
             },
-          });
+          );
         },
       });
     </script>
@@ -114,10 +118,7 @@
         <pre id="ascii-banner" aria-hidden="true" class="ascii"></pre>
       </div>
 
-      <h1 class="sr-only">
-        Snowflake Proxy Volunteering bandwidth to help Tor users bypass
-        censorship.
-      </h1>
+      <h1 class="sr-only">Battle Censorship with Snowflake Proxy</h1>
 
       <div id="iframe-wrapper">
         <iframe
@@ -130,12 +131,13 @@
         ></iframe>
       </div>
 
-      <pre id="ascii-footer" aria-hidden="true" class="ascii"></pre>
+      <pre id="ascii-description" aria-hidden="true" class="ascii"></pre>
 
       <p class="sr-only">
-        Enable snowflake and leave it on to donate bandwith and help tor users
-        bypass censorship and access internet freely. Click "Learn more" to find
-        out how snowflake proxy works and how to set it up on your own website.
+        Snowflake is a tool made by the Tor Project. Enable Snowflake and leave
+        it on to donate bandwidth and help Tor users bypass censorship and
+        access the internet freely where Tor is blocked. Click "Learn More" to
+        find out how Snowflake proxy works.
       </p>
     </main>
 
