@@ -25,19 +25,15 @@
                                   
               page not found`;
 
-      asciiPrint(document.getElementById("ascii-banner"), banner, {
+      asciiPrint(document.getElementById("ascii-not-found-banner"), banner, {
         chunkSize: 16,
       });
     </script>
   </head>
 
-  <body class="page-body">
-    <main class="not-found-main">
-      <pre
-        id="ascii-banner"
-        aria-hidden="true"
-        class="ascii not-found-banner"
-      ></pre>
+  <body>
+    <main id="not-found-page">
+      <pre id="ascii-not-found-banner" aria-hidden="true" class="ascii"></pre>
 
       <h1 class="sr-only">404 — page not found</h1>
     </main>
