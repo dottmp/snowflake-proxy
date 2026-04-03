@@ -15,66 +15,86 @@
       import { asciiPrint } from "./src/ascii-print.js";
 
       const snowflake = `
-           .                      +++          
-           *=   .+               :*-           
-            ++: +=            ..+*:            
-             =+++        ..  .*++   ....       
-              :++        ==  =+*-              
-               =++  -    =++++++  -*:     .    
-                +=***   :+*+*+*  :+=     +=    
-              .-:*++.     - ..+.++=      +.    
-               = *+.=     :....-=       -*.  .-
-      .        +....:.   -.:..=.       =**++=  
-  .. .++        +-..:. . ::..:      .=++:.     
-   ==+*=        .::..:...:: ....-+++**.        
-      .****++....::..:::::..::.:.=***=+*+=:-=-=
-    .:=+*+-.:.............::.=..         ..  -+
-**+=+=++*=+++=-.:-::......::.: .    .-        -
-:           -++==:.:.:.....:...=-++-           
-              .=....:..:......:.-              
-          *==+:-:..::..::.:.....=.             
-            +*=.:.:::...::.....:.**+.          
-            +:...-=::*::-=:.:....*=            
-           =+==:  ++==*. :-.:= ++*             
-     :. - ++=    :*-.=-:==**=   +*=            
-     .: :++     --.      -*+.  :.+*            
-     :: -+    -  .         +.     ++           
-      :=--*+=                   :+*+=          
-   -+-+.:                      -   .*:         
-    :+  :                            +..:      
-   .*        ..                      .+.       
-             .=.                      +        
-                                       -        
-`;
+                 .                      +++
+                 *=   .+               :*-
+                  ++: +=            ..+*:
+                   =+++        ..  .*++   ....
+                    :++        ==  =+*-
+                     =++  -    =++++++  -*:     .
+                      +=***   :+*+*+*  :+=     +=
+                    .-:*++.     - ..+.++=      +.
+                     = *+.=     :....-=       -*.  .-
+            .        +....:.   -.:..=.       =**++=
+        .. .++        +-..:. . ::..:      .=++:.
+         ==+*=        .::..:...:: ....-+++**.
+            .****++....::..:::::..::.:.=***=+*+=:-=-=
+          .:=+*+-.:.............::.=..         ..  -+
+      **+=+=++*=+++=-.:-::......::.: .    .-        -
+      :           -++==:.:.:.....:...=-++-
+                    .=....:..:......:.-
+                *==+:-:..::..::.:.....=.
+                  +*=.:.:::...::.....:.**+.
+                  +:...-=::*::-=:.:....*=
+                 =+==:  ++==*. :-.:= ++*
+           :. - ++=    :*-.=-:==**=   +*=
+           .: :++     --.      -*+.  :.+*
+           :: -+    -  .         +.     ++
+            :=--*+=                   :+*+=
+         -+-+.:                      -   .*:
+          :+  :                            +..:
+         .*        ..                      .+.
+                   .=.                      +
+                                             -`;
 
       const banner = `
-battle  
-censorship with
+                                                 :####   ####                ##
+                                                 #####   ####                ##
+                                                 ##        ##                ##
+        :#####.  ##.####    .####.  ##      ## #######     ##       :####    ##   ##:   .####:             ##.###:    ##.####   .####.   ###  ###  ##    ##
+       ########  #######   .######. ##.    .## #######     ##       ######   ##  ##:   .######:            #######:   #######  .######.   ##::##   :##  ##
+       ##:  .:#  ###  :##  ###  ###  #: ## :#    ##        ##       #:  :##  ##:##:    ##:  :##            ###  ###   ###.     ###  ###   :####:    ##: ##.
+       ##### .   ##    ##  ##.  .## :#:.##.:#:   ##        ##        :#####  ####      ########            ##.  .##   ##       ##.  .##    ####     ###:##
+       .######:  ##    ##  ##    ##  # :##:##    ##        ##      .#######  #####     ########            ##    ##   ##       ##    ##    :##:     .## #
+          .: ##  ##    ##  ##.  .##  ## ## ##    ##        ##      ## .  ##  ##.###    ##                  ##.  .##   ##       ##.  .##    ####      ####.
+       #:.  :##  ##    ##  ###  ###  ###::##     ##        ##:     ##:  ###  ##  ##:   ###.  :#            ###  ###   ##       ###  ###   :####:     :###
+       ########  ##    ##  .######.  :##..##:    ##        #####   ########  ##  :##   .#######            #######:   ##       .######.   ##::##      ##
+       . ####    ##    ##   .####.   .##  ##     ##        .####     ###.##  ##   ###   .#####:            ##.###:    ##        .####.   ###  ###     ##.
+                                                                                                           ##                                        :##
+                                                                                                           ##                                       ###:
+                                                                                                           ##                                       ###
 
-                 snowflake proxy `;
+
+                                                                                                                        battle
+                                                                                                                        censorship with
+
+                                                                                                                                        snowflake proxy`;
 
       const footer = `enable snowflake and leave it on to donate bandwith and help tor users bypass censorship and access internet freely. click "learn more" to find out how snowflake proxy works.`;
 
-      asciiPrint(document.getElementById("ascii-snowflake"), snowflake, {
+      asciiPrint(document.getElementById("ascii-banner"), banner, {
         chunkSize: 24,
         oncomplete: () => {
-          asciiPrint(document.getElementById("ascii-banner"), banner, {
+          const iframe = document.getElementById("proxy-iframe");
+          const isFirefox = navigator.userAgent
+            .toLowerCase()
+            .includes("firefox");
+
+          iframe.style.filter = isFirefox
+            ? "invert(1) hue-rotate(180deg) brightness(0.8) contrast(0.92)"
+            : "brightness(0.6) contrast(1.2) saturate(1) hue-rotate(180deg)";
+
+          iframe.classList.add("visible");
+
+          asciiPrint(document.getElementById("ascii-footer"), footer, {
             chunkSize: 4,
             oncomplete: () => {
-              const iframe = document.getElementById("proxy-iframe");
-              const isFirefox = navigator.userAgent
-                .toLowerCase()
-                .includes("firefox");
-
-              iframe.style.filter = isFirefox
-                ? "invert(1) hue-rotate(180deg) brightness(0.8) contrast(0.92)"
-                : "brightness(0.6) contrast(1.2) saturate(1) hue-rotate(180deg)";
-
-              iframe.classList.add("visible");
-
-              asciiPrint(document.getElementById("ascii-footer"), footer, {
-                chunkSize: 4,
-              });
+              asciiPrint(
+                document.getElementById("ascii-snowflake"),
+                snowflake,
+                {
+                  chunkSize: 24,
+                },
+              );
             },
           });
         },
@@ -88,23 +108,27 @@ censorship with
 
   <body>
     <main id="index-page">
-      <pre id="ascii-snowflake" aria-hidden="true" class="ascii"></pre>
+      <div id="banner">
+        <pre id="ascii-snowflake" aria-hidden="true" class="ascii"></pre>
 
-      <pre id="ascii-banner" aria-hidden="true" class="ascii"></pre>
+        <pre id="ascii-banner" aria-hidden="true" class="ascii"></pre>
+      </div>
 
       <h1 class="sr-only">
         Snowflake Proxy Volunteering bandwidth to help Tor users bypass
         censorship.
       </h1>
 
-      <iframe
-        id="proxy-iframe"
-        title="Snowflake proxy"
-        aria-readonly="true"
-        src="https://snowflake.torproject.org/embed.html"
-        width="320"
-        height="260"
-      ></iframe>
+      <div id="iframe-wrapper">
+        <iframe
+          id="proxy-iframe"
+          title="Snowflake proxy"
+          aria-readonly="true"
+          src="https://snowflake.torproject.org/embed.html"
+          width="320"
+          height="260"
+        ></iframe>
+      </div>
 
       <pre id="ascii-footer" aria-hidden="true" class="ascii"></pre>
 
@@ -114,5 +138,35 @@ censorship with
         out how snowflake proxy works and how to set it up on your own website.
       </p>
     </main>
+
+    <footer>
+      <p>
+        © <span id="copyright-year"></span> dottmp |
+        <a
+          class="btn btn-link"
+          href="https://github.com/dottmp/snowlfake-proxy"
+          target="_blank"
+          rel="noopener noreferrer"
+          >github repo</a
+        >
+        |
+        <a
+          class="btn btn-link"
+          href="https://github.com/dottmp/snowlfake-proxy/blob/main/LICENSE"
+          target="_blank"
+          rel="noopener noreferrer"
+          >mit license</a
+        >
+      </p>
+    </footer>
+
+    <script>
+      const START_YEAR = 2026;
+      const current = new Date().getFullYear();
+      document.getElementById("copyright-year").textContent =
+        current > START_YEAR
+          ? `${START_YEAR}\u2013${current}`
+          : `${START_YEAR}`;
+    </script>
   </body>
 </html>
