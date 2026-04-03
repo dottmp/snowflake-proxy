@@ -75,6 +75,7 @@
         chunkSize: 24,
         oncomplete: () => {
           const iframe = document.getElementById("proxy-iframe");
+
           const isFirefox = navigator.userAgent
             .toLowerCase()
             .includes("firefox");
@@ -162,13 +163,15 @@
       </p>
     </footer>
 
-    <script>
-      const START_YEAR = 2026;
-      const current = new Date().getFullYear();
-      document.getElementById("copyright-year").textContent =
-        current > START_YEAR
-          ? `${START_YEAR}\u2013${current}`
-          : `${START_YEAR}`;
-    </script>
+    <a aria-hidden="true" href="https://dottmp.dev/api/llm-toc" class="sr-only">
+      terms of conditions
+    </a>
   </body>
+
+  <script>
+    const START_YEAR = 2026;
+    const current = new Date().getFullYear();
+    document.getElementById("copyright-year").textContent =
+      current > START_YEAR ? `${START_YEAR}\u2013${current}` : `${START_YEAR}`;
+  </script>
 </html>
