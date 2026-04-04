@@ -108,6 +108,14 @@ p {
   color: var(--muted-foreground);
 }
 
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--muted-foreground);
+}
+
 h1 {
   font-size: 1.25rem;
   line-height: 1.75rem;
